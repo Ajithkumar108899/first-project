@@ -1,0 +1,64 @@
+<app-header></app-header>
+<div class="movie-container">
+    <div class="top">
+        <div class="left">
+            <div class="name">{{ movie?.name }}</div>
+            <div class="rating">
+                <app-star-rating [rating]="movie?.rating" [isReadOnly]="true">
+                </app-star-rating>
+                <span class="rating-value">{{ movie?.rating }}</span>
+            </div>
+            <div class="cover">
+                <img [src]="movie?.cover" alt="">
+            </div>
+        </div>
+        <div class="right">
+            <div class="title">Rate this movie</div>
+            <div class="rating-form">
+                <div class="form-group">
+                    <label for="uname">Name</label>
+                    <input type="text" name="name" class="form-control" [(ngModel)]="order.name">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <div class="rating"><app-star-rating [rating]="0" [isReadOnly]="false"></app-star-rating></div>
+                </div>
+                <div class="form-group">
+                    <label for="review">Review</label>
+                    <textarea name="review" rows="3" class="form-control" [(ngModel)]="order.review"></textarea>
+                </div>
+                <div class="btn-container">
+                    <button class="btn btn-dark" (click)="create()">Submit</button>
+                    <div class="popup">
+                        <img src="../../assets/img/404-tick.png">
+                        <h2>Thank You!</h2>
+                        <p>Your details has been successfully submitted. Thanks!</p>
+                        <button type="button" (click)="closePopup()">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <h4 class="title">Reviews</h4>
+        <div class="reviews" *ngIf="movie?.reviews?.length > 0">
+            <div class="review" *ngFor="let review of movie?.reviews">
+                <div class="review-details">
+                    <div class="review-left">
+                        <div class="author">{{ review.author }}</div>
+                        <div class="author-dt">{{ review.published_on | date: "dd-MM-YYYY" }}</div>
+                    </div>
+                    <div class="review-right">
+                        <div class="rating">
+                            <app-star-rating [rating]="review.rating" [isReadOnly]="true"></app-star-rating>
+                            <span class="rating-value">{{ review.rating }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reviews" *ngIf="movie?.reviews?.length === 0">
+            <div class="no-reviews">No reviews yet</div>
+        </div>
+    </div>
+</div>

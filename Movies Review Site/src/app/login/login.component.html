@@ -1,0 +1,28 @@
+<div class="login-container">
+    <img src="assets/img/pngwing.com.png" class="film">
+    <div class="logo">MRvS</div>
+
+
+    <div class="desc">
+        <h2>Movies Review Site</h2>
+        If you are looking for what ordinary viewing folk think of this week’s releases, there is really nowhere else than MRvS There are countless user reviews of each film title, ranging from a 1-star review up to a 10!
+    </div>
+    <div class="login-form">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="uname" class="form-control" [(ngModel)]="username">
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="text" name="Password" class="form-control" [(ngModel)]="password">
+        </div>
+        <div class="btn-container">
+            <div class="error">{{ errorMsg }}</div>
+            <button class="btn btn-dark" (click)="login()">Login</button>
+        </div>
+        <div class="mx-auto ta-center fs-body1 p16 pb0 mb24 w100 wmx3">Don't have an account? 
+            <a href="" routerLink="/signup">Sign up</a>
+        </div>
+    </div>
+    
+</div>

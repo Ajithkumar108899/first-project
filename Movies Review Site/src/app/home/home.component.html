@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="home-container">
+  <div class="all-movies2">
+    <div class="trending-movies">
+      <div class="top2">
+        <h4 class="h42">Trending Movies</h4>
+        <div class="view-all2">View All</div>
+      </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of trendingMovies">
+          <div class="cover2" (click)="goToMovie('trending', movie.id)">
+            <img class="img2" [src]="movie.cover" alt="" />
+          </div>
+          <div class="detail2">
+            <div class="name2" (click)="goToMovie('trending', movie.id)">{{ movie.name }}</div>
+            <div class="rating">
+              <span class="rating-value">{{ movie.rating }}</span>
+              <app-star-rating
+                [rating]="movie.rating"
+                [isReadOnly]="true"
+              ></app-star-rating>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="theatre-movies">
+      <div class="top2">
+        <h4 class="h42">Popular in Theatres</h4>
+        <div class="view-all2">View All</div>
+      </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of theatreMovies">
+          <div class="cover2" (click)="goToMovie('theatre', movie.id)">
+            <img class="img2" [src]="movie.cover" alt="" />
+          </div>
+          <div class="detail2">
+            <div class="name2" (click)="goToMovie('theatre', movie.id)">{{ movie.name }}</div>
+            <div class="rating">
+              <span class="rating-value">{{ movie.rating }}</span>
+              <app-star-rating
+                [rating]="movie.rating"
+                [isReadOnly]="true"
+              ></app-star-rating>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popular-movies">
+    <h4 class="h41">All Time Popular</h4>
+    <div class="movies1">
+      <div class="movie1" *ngFor="let movie of popularMovies">
+        <div class="name1" (click)="goToMovie('popular', movie.id)">{{ movie.name }}</div>
+        <div class="rating">
+          <span class="rating-value">{{ movie.rating }}</span>
+          <app-star-rating
+            [rating]="movie.rating"
+            [isReadOnly]="true"
+          ></app-star-rating>
+        </div>
+      </div>
+      <div class="view-all1">View all</div>
+    </div>
+  </div>
+</div>
