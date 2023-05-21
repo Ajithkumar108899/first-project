@@ -54,7 +54,8 @@ export class MovieComponent implements OnInit {
   create(){
     this.openPopup()
     this.service.createproduct(this.order).subscribe(data=>{
-      console.log(data);
+     
+      this.order=data
       
     })
   }
